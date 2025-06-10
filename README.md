@@ -58,7 +58,7 @@ Sumber Dataset yang digunakan dalam proyek ini berisi informasi akademik dan adm
 - Label target = Status mahasiswa (Dropout, Enrolled, Graduate).
 
 [Dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
-ini digunakan untuk melatih model Machine Learning dalam memprediksi kemungkinan mahasiswa mengalami dropout, tetap terdaftar, atau lulus.
+memiliki 4.424 entri dengan 37 kolom digunakan untuk melatih model Machine Learning dalam memprediksi kemungkinan mahasiswa mengalami dropout, tetap terdaftar, atau lulus.
 
 Setup environment:
 Agar proyek ini dapat dijalankan dengan lingkungan yang terisolasi dan stabil, ikuti langkah-langkah berikut:
