@@ -95,7 +95,7 @@ streamlit run app.py
 Business Dashboard yang dibuat menggunakan Metabase berfungsi untuk analisis data mahasiswa, khususnya dalam memahami pola dropout berdasarkan berbagai faktor akademik dan finansial.  Berikut tampilannya:
 ![tiani_ayu-dashboard-1](https://github.com/user-attachments/assets/38126783-949f-4bce-ad87-22bffb9ceca9)
 
-![tiani_ayu-dashboard-2](https://github.com/user-attachments/assets/0060e2d0-11cd-4b34-99d1-7cb11a9460c4)
+ ![tiani_ayu-dashboard-2](https://github.com/user-attachments/assets/0060e2d0-11cd-4b34-99d1-7cb11a9460c4)
 
 ## Menjalankan Sistem Machine Learning
 Sistem Machine Learning yang dibuat berfungsi untuk memprediksi kemungkinan mahasiswa mengalami dropout berdasarkan data akademik dan finansial mereka. Dashboard ini memungkinkan pengguna untuk: 
