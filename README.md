@@ -50,7 +50,15 @@ Menginterpretasi hasil visualisasi dan model prediksi untuk menemukan pola dropo
 
 ### Persiapan
 
-Sumber data: [Dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
+Sumber Dataset yang digunakan dalam proyek ini berisi informasi akademik dan administratif mahasiswa, termasuk:
+- Data demografis = Usia saat masuk, kebangsaan.
+- Data akademik = Nilai masuk, nilai kualifikasi sebelumnya, rata-rata nilai semester, jumlah mata kuliah yang lulus.
+- Data evaluasi = Jumlah evaluasi akademik per semester.
+- Data finansial = Status pembayaran biaya kuliah dan penerimaan beasiswa.
+- Label target = Status mahasiswa (Dropout, Enrolled, Graduate).
+
+[Dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
+ini digunakan untuk melatih model Machine Learning dalam memprediksi kemungkinan mahasiswa mengalami dropout, tetap terdaftar, atau lulus.
 
 Setup environment:
 Agar proyek ini dapat dijalankan dengan lingkungan yang terisolasi dan stabil, ikuti langkah-langkah berikut:
@@ -60,7 +68,8 @@ Agar proyek ini dapat dijalankan dengan lingkungan yang terisolasi dan stabil, i
 2. Menginstal Dependensi dari requirements.txt. Pastikan semua pustaka yang diperlukan telah terinstal sebelum menjalankan proyek.
 
 ```
-pip install -r requirements.txt
+pip install pipreqs
+pipreqs . --force
 ```
 
 3. Gunakan docker dan pastikan docker sudah terinstall.
@@ -76,15 +85,32 @@ username: root1@mail.com
 password: root123
 ```
 
+5. Deploy Streamlit App
+```
+streamlit run app.py
+```
+
+
 ## Business Dashboard
-Jelaskan tentang business dashboard yang telah dibuat. Jika ada, sertakan juga link untuk mengakses dashboard tersebut.
+Business Dashboard yang dibuat menggunakan Metabase berfungsi untuk analisis data mahasiswa, khususnya dalam memahami pola dropout berdasarkan berbagai faktor akademik dan finansial.  Berikut tampilannya:
+![tiani_ayu-dashboard-1](https://github.com/user-attachments/assets/38126783-949f-4bce-ad87-22bffb9ceca9)
+
+![tiani_ayu-dashboard-2](https://github.com/user-attachments/assets/0060e2d0-11cd-4b34-99d1-7cb11a9460c4)
 
 ## Menjalankan Sistem Machine Learning
-Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
+Sistem Machine Learning yang dibuat berfungsi untuk memprediksi kemungkinan mahasiswa mengalami dropout berdasarkan data akademik dan finansial mereka. Dashboard ini memungkinkan pengguna untuk: 
+- Memasukkan data akademik dan finansial mahasiswa
+- Menjalankan model prediksi dropout secara real-time
+- Mendapatkan hasil prediksi apakah mahasiswa akan dropout, tetap terdaftar, atau lulus
 
+Menjalankan model di Streamlit (lokal):
 ```
+streamlit run app.py
+```
+Link Akses Prototype Machine Learning: [Streamlit App](https://dudidudidam.streamlit.app/)
+![image](https://github.com/user-attachments/assets/58a8ff17-e011-4767-8803-45c3712a9e59)
 
-```
+![image](https://github.com/user-attachments/assets/f3f3dd9e-40ba-4602-9ba5-a5e2f68fab09)
 
 ## Conclusion
 Berdasarkan hasil pemodelan dan evaluasi menggunakan beberapa algoritma klasifikasi, model terbaik yang dipilih menunjukkan performa yang cukup baik dalam memprediksi status mahasiswa (Dropout, Enrolled, Graduate) dengan akurasi sebesar 76.27%. Model ini mampu mengidentifikasi mahasiswa yang berpotensi mengalami dropout dengan cukup baik, terutama pada kategori Dropout dan Graduate, yang masing-masing memiliki f1-score sebesar 0.79 dan 0.84.
