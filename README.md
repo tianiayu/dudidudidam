@@ -12,41 +12,13 @@ Jaya Jaya Institut menghadapi permasalahan signifikan terkait tingginya angka ma
 5. Bagaimana distribusi nilai rata-rata mahasiswa yang dropout dibandingkan dengan yang graduate?
 
 ### Cakupan Proyek
-1. Pemahaman Data (Data Understanding):
-  - Mengeksplorasi data mahasiswa, termasuk informasi demografis, akademik, dan administratif.
-  - Mengidentifikasi variabel-variabel penting yang berkaitan dengan status kelulusan mahasiswa.
-2. Pra-pemrosesan Data (Data Preprocessing):
-  - Menangani data kosong, outlier, dan melakukan encoding pada variabel kategorikal.
-  - Melakukan feature engineering untuk meningkatkan performa model prediksi.
-3. Pemodelan (Modeling):
-  - Membangun beberapa model klasifikasi seperti Random Forest, XGBoost, SVM, dan Decision Tree.
-  - Melatih dan menguji performa model menggunakan data historis.
-4. Evaluasi Model (Evaluation):
-  - Mengevaluasi performa model berdasarkan metrik seperti akurasi, precision, recall, dan f1-score.
-  - Memilih model terbaik yang dapat digunakan untuk mendeteksi potensi dropout.
-5. Implementasi dan Rekomendasi:
-  - Menyimpan model dalam format .joblib untuk dapat digunakan lebih lanjut.
-  - Memberikan rekomendasi penggunaan model bagi pihak institusi untuk proses bimbingan dan intervensi dini.
-6. Visualisasi Data dan Dashboard (Data Visualization & Dashboarding):
-  - Mengembangkan dashboard interaktif menggunakan Metabase untuk menyajikan hasil analisis dalam bentuk visual yang mudah dipahami.
-  - Menyediakan fitur filter berdasarkan Status (Dropout, Graduate, Enrolled) dan Gender (Male, Female) agar pengguna dapat melakukan eksplorasi data secara dinamis.
-  - Menampilkan headline utama seperti total mahasiswa dropout, jurusan dengan dropout tertinggi, serta faktor-faktor yang paling berkontribusi terhadap kegagalan mahasiswa.
-  - Visualisasi mencakup:
-   - Total mahasiswa berdasarkan status dan gender
-   - Distribusi kewarganegaraan mahasiswa
-   - Jurusan dengan dropout tertinggi
-   - Faktor penyebab dropout berdasarkan delapan kategori dominan
-7. Interpretasi dan Insight Bisnis (Insight Generation):
-Menginterpretasi hasil visualisasi dan model prediksi untuk menemukan pola dropout mahasiswa berdasarkan karakteristik tertentu seperti status beasiswa, keterlambatan pembayaran, atau status pernikahan.
-  - Mengidentifikasi jurusan dan kewarganegaraan yang paling rentan terhadap dropout untuk keperluan evaluasi kurikulum dan kebijakan pendidikan.
-  - Menghubungkan performa akademik mahasiswa dengan faktor ekonomi makro seperti tingkat pengangguran dan inflasi sebagai pendekatan tambahan untuk analisis prediktif yang lebih luas.
-8. Kesimpulan dan Tindak Lanjut (Conclusion & Next Steps):
-  - Proyek berhasil mengidentifikasi faktor-faktor utama yang berkontribusi terhadap tingkat dropout mahasiswa.
-  - Model terbaik dari proses evaluasi dapat digunakan untuk memprediksi risiko dropout dan mendukung intervensi proaktif oleh pihak kampus.
-  - Rekomendasi utama:
-   - Gunakan model prediksi sebagai bagian dari sistem monitoring mahasiswa
-   - Fokuskan program intervensi pada mahasiswa dengan profil risiko tinggi berdasarkan fitur yang paling memengaruhi
-  - Pertimbangkan pengembangan lanjutan seperti pengujian real-time atau integrasi ke dalam sistem informasi akademik kampus
+1. Pemahaman Data (Data Understanding), proyek ini dimulai dengan eksplorasi data mahasiswa yang mencakup aspek demografis, akademik, dan administratif. Langkah ini bertujuan untuk memahami pola dalam data serta mengidentifikasi variabel-variabel utama yang berpengaruh terhadap status kelulusan mahasiswa.
+2. Pra-pemrosesan Data (Data Preprocessing), sebelum membangun model prediksi, dilakukan pra-pemrosesan data untuk memastikan kualitasnya dan penyesuaian outlier, serta encoding variabel kategorikal agar dapat digunakan dalam analisis. Selain itu, dilakukan feature engineering untuk meningkatkan akurasi model dengan mengekstrak informasi yang lebih relevan dari data yang tersedia.
+3. Pemodelan (Modeling), menggunakan model klasifikasi seperti Random Forest untuk memprediksi status mahasiswa.
+4. Evaluasi Model (Evaluation), setelah model dikembangkan dilakukan evaluasi menggunakan metrik seperti akurasi, precision, recall, dan F1-score. Evaluasi ini bertujuan untuk mengukur efektivitas model dalam memprediksi status mahasiswa serta memastikan bahwa model yang dipilih memiliki performa yang optimal dalam mendeteksi risiko dropout.
+5. Implementasi dan Rekomendasi, model terbaik disimpan dalam format (.joblib) agar dapat digunakan lebih lanjut dalam sistem akademik.
+6. Visualisasi Data dan Dashboard (Data Visualization & Dashboarding), untuk menyajikan hasil analisis secara lebih intuitif dikembangkan dashboard interaktif menggunakan Metabase. Dashboard ini memungkinkan eksplorasi data berdasarkan Status Mahasiswa dan Gender, serta menampilkan informasi utama seperti total mahasiswa berdasarkan status mahasiswa dan gender, distribusi kewarganegaraan, jurusan dengan dropout tertinggi, dan faktor utama yang berkontribusi terhadap dropout.
+7. Interpretasi dan Insight Bisnis, hasil visualisasi dan model prediksi dianalisis lebih lanjut melalui dashboard interaktif di Streamlit, yang memungkinkan eksplorasi pola dropout berdasarkan faktor seperti status beasiswa, keterlambatan pembayaran, atau status pernikahan. Selain itu, dashboard membantu mengidentifikasi jurusan dan kewarganegaraan yang paling rentan terhadap dropout, sehingga dapat digunakan untuk evaluasi kurikulum dan kebijakan pendidikan. Dengan pendekatan ini, institusi dapat memahami tren dropout secara lebih dinamis dan mengambil langkah intervensi yang tepat berdasarkan data yang telah divisualisasikan.
 
 ### Persiapan
 
@@ -113,22 +85,14 @@ Link Akses Prototype Machine Learning: [Streamlit App](https://dudidudidam.strea
 ![image](https://github.com/user-attachments/assets/f3f3dd9e-40ba-4602-9ba5-a5e2f68fab09)
 
 ## Conclusion
-Berdasarkan hasil pemodelan dan evaluasi menggunakan beberapa algoritma klasifikasi, model terbaik yang dipilih menunjukkan performa yang cukup baik dalam memprediksi status mahasiswa (Dropout, Enrolled, Graduate) dengan akurasi sebesar 76.27%. Model ini mampu mengidentifikasi mahasiswa yang berpotensi mengalami dropout dengan cukup baik, terutama pada kategori Dropout dan Graduate, yang masing-masing memiliki f1-score sebesar 0.79 dan 0.84.
+Berdasarkan hasil pemodelan dan evaluasi menggunakan beberapa algoritma klasifikasi, model terbaik yang dipilih menunjukkan performa yang cukup baik dalam memprediksi status mahasiswa dengan akurasi sebesar 76.27%. Model ini mampu mengidentifikasi mahasiswa yang berpotensi mengalami dropout dengan cukup baik, terutama pada kategori Dropout dan Graduate, yang masing-masing memiliki f1-score sebesar 0.79 dan 0.84.
 
 Secara keseluruhan, hasil classification report menunjukkan bahwa model memiliki:
 - Precision tertinggi pada kategori Dropout (0.84), yang berarti model cukup akurat dalam mengidentifikasi mahasiswa yang dropout.
 - Recall tertinggi pada kategori Graduate (0.94), menunjukkan bahwa model berhasil mengenali sebagian besar mahasiswa yang berhasil lulus.
 - Rata-rata makro f1-score sebesar 0.68, dan rata-rata tertimbang (weighted average) f1-score sebesar 0.75.
 
-Hasil ini mengindikasikan bahwa model cukup andal digunakan sebagai alat bantu untuk melakukan deteksi dini terhadap potensi mahasiswa yang berisiko dropout, yang selanjutnya dapat ditindaklanjuti dengan intervensi atau bimbingan khusus dari pihak institusi.
-
-Untuk meningkatkan performa model ke depan, disarankan untuk:
-- Melakukan balancing data untuk kategori Enrolled.
-- Mengeksplorasi tambahan fitur yang lebih representatif.
-- Mengintegrasikan faktor-faktor eksternal seperti kondisi ekonomi dan psikologis mahasiswa.
-- Melakukan uji coba penggunaan model dalam skenario nyata secara bertahap.
-
-Dengan demikian, proyek ini memberikan solusi data-driven yang dapat digunakan pihak kampus dalam upaya pengurangan angka dropout dan peningkatan kualitas layanan pendidikan secara berkelanjutan.
+Proyek ini berhasil mengidentifikasi faktor utama yang berkontribusi terhadap tingkat dropout mahasiswa. Hasil ini mengindikasikan bahwa model cukup andal digunakan sebagai alat bantu untuk melakukan deteksi dini terhadap potensi mahasiswa yang berisiko dropout. Rekomendasi utama dari proyek ini mencakup integrasi model prediksi ke dalam sistem monitoring mahasiswa, fokus intervensi pada mahasiswa dengan profil risiko tinggi, serta pengembangan lanjutan seperti pengujian real-time atau integrasi ke dalam sistem informasi akademik kampus. 
 
 ### Rekomendasi Action Items
 Berdasarkan hasil analisis data dan pemodelan machine learning terhadap kasus mahasiswa dropout, berikut adalah beberapa rekomendasi action items yang dapat dilakukan oleh perusahaan edutech atau institusi pendidikan:
