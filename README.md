@@ -47,14 +47,14 @@ pipreqs . --force
 3. Gunakan docker dan pastikan docker sudah terinstall.
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 4. Login Metabase:
 
 ```
 username: root1@mail.com
-password: root123
+password: root12345
 ```
 
 5. Deploy Streamlit App
