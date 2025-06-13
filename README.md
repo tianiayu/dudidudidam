@@ -40,8 +40,7 @@ Agar proyek ini dapat dijalankan dengan lingkungan yang terisolasi dan stabil, i
 2. Menginstal Dependensi dari requirements.txt. Pastikan semua pustaka yang diperlukan telah terinstal sebelum menjalankan proyek.
 
 ```
-pip install pipreqs
-pipreqs . --force
+pip install -r requirements.txt
 ```
 
 3. Gunakan docker dan pastikan docker sudah terinstall.
