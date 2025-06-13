@@ -52,7 +52,7 @@ docker compose up -d
 4. Login Metabase:
 
 ```
-username: root1@mail.com
+username: root1@gmail.com
 password: root12345
 ```
 
