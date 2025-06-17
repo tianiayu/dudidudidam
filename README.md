@@ -4,12 +4,17 @@
 Jaya Jaya Institut merupakan salah satu institusi pendidikan perguruan yang telah berdiri sejak tahun 2000. Hingga saat ini ia telah mencetak banyak lulusan dengan reputasi yang sangat baik. Akan tetapi, terdapat banyak juga siswa yang tidak menyelesaikan pendidikannya alias dropout. Jumlah dropout yang tinggi ini tentunya menjadi salah satu masalah yang besar untuk sebuah institusi pendidikan. Oleh karena itu, Jaya Jaya Institut ingin mendeteksi secepat mungkin siswa yang mungkin akan melakukan dropout sehingga dapat diberi bimbingan khusus.
 
 ### Permasalahan Bisnis
-Jaya Jaya Institut menghadapi permasalahan signifikan terkait tingginya angka mahasiswa yang tidak menyelesaikan studinya (dropout). Fenomena ini dapat berdampak negatif terhadap reputasi institusi, efisiensi operasional, dan pencapaian target akademik. Permasalahan spesifik yang ingin diselesaikan antara lain:
-1. Faktor apa saja yang paling dominan pada mahasiswa dropout?
-2. Berapa banyak mahasiswa yang dropout dan graduate secara keseluruhan?
-3. Jurusan mana yang paling terdampak oleh tingkat dropout?
-4. Negara atau kebangsaan mana yang memiliki tingkat dropout tertinggi?
-5. Bagaimana distribusi nilai rata-rata mahasiswa yang dropout dibandingkan dengan yang graduate?
+Jaya Jaya Institut menghadapi sejumlah tantangan serius terkait ketidakselesaian studi oleh sebagian mahasiswa. Berdasarkan data internal, tingkat dropout mahasiswa melebihi 30% dalam beberapa tahun terakhir. Hal ini berdampak pada reputasi institusi, efektivitas penggunaan sumber daya, dan pencapaian target akademik.
+
+Beberapa permasalahan utama yang dihadapi antara lain:
+
+1. **Tingginya tingkat dropout mahasiswa**, yang berdampak pada citra dan kualitas institusi secara keseluruhan.
+2. **Ketidakjelasan faktor dominan yang menyebabkan mahasiswa mengalami dropout**, sehingga menyulitkan pengambilan keputusan berbasis data.
+3. **Distribusi dropout yang tidak merata antar jurusan dan kebangsaan**, menunjukkan perlunya kebijakan yang lebih terarah.
+4. **Ketiadaan sistem prediktif untuk mengidentifikasi mahasiswa berisiko dropout sejak dini.**
+5. **Kurangnya wawasan terkait keterkaitan antara performa akademik dan potensi dropout**, seperti nilai rata-rata semester atau jumlah evaluasi yang diterima.
+
+Permasalahan-permasalahan ini menjadi dasar dilakukannya analisis prediktif untuk membantu institusi dalam memahami dan menanggulangi risiko dropout secara lebih efektif.
 
 ### Cakupan Proyek
 1. Pemahaman Data (Data Understanding), proyek ini dimulai dengan eksplorasi data mahasiswa yang mencakup aspek demografis, akademik, dan administratif. Langkah ini bertujuan untuk memahami pola dalam data serta mengidentifikasi variabel-variabel utama yang berpengaruh terhadap status kelulusan mahasiswa.
@@ -21,42 +26,38 @@ Jaya Jaya Institut menghadapi permasalahan signifikan terkait tingginya angka ma
 7. Interpretasi dan Insight Bisnis, hasil visualisasi dan model prediksi dianalisis lebih lanjut melalui dashboard interaktif di Streamlit, yang memungkinkan eksplorasi pola dropout berdasarkan faktor seperti status beasiswa, keterlambatan pembayaran, atau status pernikahan. Selain itu, dashboard membantu mengidentifikasi jurusan dan kewarganegaraan yang paling rentan terhadap dropout, sehingga dapat digunakan untuk evaluasi kurikulum dan kebijakan pendidikan. Dengan pendekatan ini, institusi dapat memahami tren dropout secara lebih dinamis dan mengambil langkah intervensi yang tepat berdasarkan data yang telah divisualisasikan.
 
 ### Persiapan
+Sumber Data
+Dataset yang digunakan dalam proyek ini berisi informasi akademik dan administratif mahasiswa yang mencakup data demografis (usia saat masuk, kebangsaan), data akademik (nilai masuk, rata-rata nilai semester, jumlah mata kuliah lulus), data evaluasi (jumlah evaluasi per semester), data finansial (status pembayaran, penerimaan beasiswa), dan label target berupa status mahasiswa (Dropout, Enrolled, Graduate).
 
-Sumber Dataset yang digunakan dalam proyek ini berisi informasi akademik dan administratif mahasiswa, termasuk:
-- Data demografis = Usia saat masuk, kebangsaan.
-- Data akademik = Nilai masuk, nilai kualifikasi sebelumnya, rata-rata nilai semester, jumlah mata kuliah yang lulus.
-- Data evaluasi = Jumlah evaluasi akademik per semester.
-- Data finansial = Status pembayaran biaya kuliah dan penerimaan beasiswa.
-- Label target = Status mahasiswa (Dropout, Enrolled, Graduate).
+Dataset ini terdiri dari 4.424 baris dan 37 kolom, dan digunakan untuk melatih model machine learning dalam memprediksi risiko mahasiswa mengalami dropout.
 
-[Dataset](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
-memiliki 4.424 baris dengan 37 kolom digunakan untuk melatih model Machine Learning dalam memprediksi kemungkinan mahasiswa mengalami dropout, tetap terdaftar, atau lulus.
+Dataset dapat diakses melalui tautan berikut: (https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
+
 
 Setup environment:
-Agar proyek ini dapat dijalankan dengan lingkungan yang terisolasi dan stabil, ikuti langkah-langkah berikut:
 
-1. Gunakan Google Colab atau Jupyter Notebook untuk menjalankan keseluruhan isi file `notebook.ipynb` guna meninjau hasil analisis data, temuan, serta wawasan yang diperoleh.
-
-2. Menginstal Dependensi dari requirements.txt. Pastikan semua pustaka yang diperlukan telah terinstal sebelum menjalankan proyek.
+1. Proyek ini awalnya dikerjakan menggunakan Google Colab dan kemudian dilanjutkan secara lokal menggunakan Visual Studio Code tanpa menggunakan Conda. Untuk menjalankan proyek di lingkungan yang terisolasi, ikuti langkah-langkah berikut:
 
 ```
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-3. Gunakan docker dan pastikan docker sudah terinstall.
+2. Gunakan docker dan pastikan docker sudah terinstall.
 
 ```
 docker compose up -d
 ```
 
-4. Login Metabase:
+3. Login Metabase:
 
 ```
 username: root1@gmail.com
 password: root12345
 ```
 
-5. Deploy Streamlit App
+4. Deploy Streamlit App
 ```
 streamlit run app.py
 ```
