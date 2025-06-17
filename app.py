@@ -102,31 +102,22 @@ if submitted:
     st.subheader("Hasil Prediksi")
     st.write(f"Status mahasiswa yang diprediksi: **{label_map[prediction]}** 🎓")
 
-  # ------------------- Tambahan Visualisasi -------------------
+  # ------------------- Visualisasi Data Mahasiswa -------------------
 st.markdown("---")
-st.subheader(" Visualisasi Data Mahasiswa")
+st.subheader("Visualisasi Data Mahasiswa")
 
-# Load data mahasiswa (pastikan file 'data_mahasiswa.csv' tersedia)
+# Load data mahasiswa
 df = pd.read_csv("df_copy.csv")
 
-# Filter status dan gender
+# 1. Filter status dan gender
 status_filter = st.multiselect("Filter Status Mahasiswa", df['Status'].unique(), default=df['Status'].unique())
 gender_filter = st.multiselect("Filter Gender", df['Gender'].unique(), default=df['Gender'].unique())
 
+# Terapkan filter ke data
 filtered_df = df[(df['Status'].isin(status_filter)) & (df['Gender'].isin(gender_filter))]
 
+# Tampilkan visualisasi hanya jika data tidak kosong
 if not filtered_df.empty:
-    # 1. Total dropout dan course dengan dropout tertinggi
-    col1, col2 = st.columns(2)
-    dropout_df = filtered_df[filtered_df['Status'] == 'Dropout']
-    col1.metric("Total Mahasiswa Dropout", len(dropout_df))
-
-    if not dropout_df.empty:
-        top_dropout_course = dropout_df['Course'].value_counts().idxmax()
-        col2.metric("Course dengan Dropout Tertinggi", top_dropout_course)
-    else:
-        col2.warning("Tidak ada data Dropout dalam filter")
-
     # 2. Total mahasiswa berdasarkan status
     st.markdown("### Total Mahasiswa berdasarkan Status")
     st.bar_chart(filtered_df['Status'].value_counts())
@@ -139,25 +130,25 @@ if not filtered_df.empty:
     st.markdown("### Distribusi Berdasarkan Program Studi (Course)")
     st.bar_chart(filtered_df['Course'].value_counts().head(10))
 
-    # 5. Faktor Dominan
+    # 5. Faktor-faktor Dominan terhadap Status Mahasiswa
     st.markdown("### Faktor-faktor Dominan terhadap Status Mahasiswa")
 
     faktor_dict = {
-        "Marital Status": "Marital_status",
-        "Debtor": "Debtor",
-        "International": "International",
-        "Tuition Fees Up To Date": "Tuition_fees_up_to_date",
-        "Scholarship Holder": "Scholarship_holder",
-        "Displaced": "Displaced",
-        "Educational Special Needs": "Educational_special_needs",
-        "Gender": "Gender"
+        "1. Berdasarkan Marital Status": "Marital_status",
+        "2. Berdasarkan Debtor": "Debtor",
+        "3. Berdasarkan International": "International",
+        "4. Berdasarkan Tuition Fees Up To Date": "Tuition_fees_up_to_date",
+        "5. Berdasarkan Scholarship Holder": "Scholarship_holder",
+        "6. Berdasarkan Displaced": "Displaced",
+        "7. Berdasarkan Educational Special Needs": "Educational_special_needs",
+        "8. Berdasarkan Gender": "Gender"
     }
 
     for label, column in faktor_dict.items():
-        st.markdown(f"#### Berdasarkan {label}")
+        st.markdown(f"#### {label}")
         if column in filtered_df.columns:
             st.bar_chart(filtered_df[column].value_counts())
         else:
             st.warning(f"Kolom '{column}' tidak ditemukan di data.")
 else:
-    st.error("⚠ Tidak ada data sesuai filter yang dipilih.")
+    st.error(" Tidak ada data sesuai filter yang dipilih.")
