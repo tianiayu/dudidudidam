@@ -32,7 +32,7 @@ Dataset ini terdiri dari 4.424 baris dan 37 kolom, dan digunakan untuk melatih m
 
 Setup environment:
 
-1. Membuat environment baru bernama newenv
+1. Membuat environment baru bernama venv
 
 ```
 python -m venv venv
@@ -84,7 +84,7 @@ Fitur Utama
 3. Jalankan aplikasi
 Link Streamlit: [Streamlit.app](https://dudidudidam.streamlit.app/)
 
-*Catatan:* File `metabase.db.mv.db` disertakan di folder `/metabase/` hanya untuk mendokumentasikan struktur dashboard. Tidak perlu menjalankan Metabase secara lokal.
+*Catatan:* File `metabase.db.mv.db` disertakan di folder `/metabase/` hanya untuk memenuhi struktur direktori. Tidak perlu menjalankan Metabase secara lokal.
 
 ## Menjalankan Sistem Machine Learning
 Sistem Machine Learning yang dibuat menggunakan model Random Forest Classifier berfungsi untuk memprediksi kemungkinan mahasiswa mengalami dropout berdasarkan data akademik dan finansial mereka. Dashboard ini memungkinkan pengguna untuk: 
