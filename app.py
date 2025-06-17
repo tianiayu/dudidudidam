@@ -101,3 +101,54 @@ if submitted:
     # Tampilkan hasil
     st.subheader("Hasil Prediksi")
     st.write(f"Status mahasiswa yang diprediksi: **{label_map[prediction]}** 🎓")
+
+  # ------------------- Tambahan Visualisasi -------------------
+st.markdown("---")
+st.subheader(" Visualisasi Data Mahasiswa")
+
+# Load data mahasiswa (pastikan file 'data_mahasiswa.csv' tersedia)
+df = pd.read_csv("df_copy.csv")
+
+# Filter status dan gender
+status_filter = st.multiselect("Filter Status Mahasiswa", df['Status'].unique(), default=df['Status'].unique())
+gender_filter = st.multiselect("Filter Gender", df['Gender'].unique(), default=df['Gender'].unique())
+
+filtered_df = df[(df['Status'].isin(status_filter)) & (df['Gender'].isin(gender_filter))]
+
+# 1. Total dropout dan course dengan dropout tertinggi
+col1, col2 = st.columns(2)
+dropout_count = filtered_df[filtered_df['Status'] == 'Dropout'].shape[0]
+col1.metric("Total Mahasiswa Dropout", dropout_count)
+
+top_dropout_course = filtered_df[filtered_df['Status'] == 'Dropout']['Course'].value_counts().idxmax()
+col2.metric("Course dengan Dropout Tertinggi", top_dropout_course)
+
+# 2. Total mahasiswa berdasarkan status gender
+st.markdown("### Total Mahasiswa berdasarkan Status")
+st.bar_chart(filtered_df['Status'].value_counts())
+
+# 3. Distribusi berdasarkan kebangsaan
+st.markdown("### Distribusi Berdasarkan Kebangsaan (Nacionality)")
+st.bar_chart(filtered_df['Nacionality'].value_counts().head(10))
+
+# 4. Distribusi berdasarkan course
+st.markdown("### Distribusi Berdasarkan Program Studi (Course)")
+st.bar_chart(filtered_df['Course'].value_counts().head(10))
+
+# 5. Faktor Dominan
+st.markdown("### Faktor-faktor Dominan terhadap Status Mahasiswa")
+
+faktor_dict = {
+    "Marital Status": "Marital_status",
+    "Debtor": "Debtor",
+    "International": "International",
+    "Tuition Fees Up To Date": "Tuition_fees_up_to_date",
+    "Scholarship Holder": "Scholarship_holder",
+    "Displaced": "Displaced",
+    "Educational Special Needs": "Educational_special_needs",
+    "Gender": "Gender"
+}
+
+for label, column in faktor_dict.items():
+    st.markdown(f"#### Berdasarkan {label}")
+    st.bar_chart(filtered_df[column].value_counts())
