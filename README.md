@@ -52,6 +52,9 @@ pip install -r requirements.txt
 ## Business Dashboard
 Dashboard ini menggabungkan analisis performa mahasiswa dengan sistem machine learning untuk memprediksi potensi dropout atau graduate. Dibangun menggunakan Streamlit guna mempermudah pemantauan status mahasiswa, jurusan, gender, serta berbagai faktor dominan lainnya.
 
+### Validasi Dashboard Metabase di Streamlit
+Visualisasi yang sebelumnya dibangun di Metabase telah diintegrasikan ke dalam Streamlit untuk kemudahan akses. Beberapa tangkapan layar berikut menunjukkan hasil integrasi dan validasi dashboard.
+
 ![Screenshot 2025-06-17 112230](https://github.com/user-attachments/assets/e18ad52d-d1d1-44e9-8b9d-cf428635d0bd)
 
 ![Screenshot 2025-06-17 112414](https://github.com/user-attachments/assets/1043c798-cb0d-45ee-b268-1d928589e49a)
@@ -81,7 +84,7 @@ Fitur Utama
 Link Streamlit: [Streamlit.app](https://dudidudidam.streamlit.app/)
 
 ## Menjalankan Sistem Machine Learning
-Sistem Machine Learning yang dibuat berfungsi untuk memprediksi kemungkinan mahasiswa mengalami dropout berdasarkan data akademik dan finansial mereka. Dashboard ini memungkinkan pengguna untuk: 
+Sistem Machine Learning yang dibuat menggunakan model Random Forest Classifier berfungsi untuk memprediksi kemungkinan mahasiswa mengalami dropout berdasarkan data akademik dan finansial mereka. Dashboard ini memungkinkan pengguna untuk: 
 - Memasukkan data akademik dan finansial mahasiswa
 - Menjalankan model prediksi dropout secara real-time
 - Mendapatkan hasil prediksi apakah mahasiswa akan dropout, tetap terdaftar, atau lulus
