@@ -29,6 +29,7 @@ Permasalahan-permasalahan ini menjadi dasar dilakukannya analisis prediktif untu
 Sumber Data: (https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
 
 Dataset ini terdiri dari 4.424 baris dan 37 kolom, dan digunakan untuk melatih model machine learning dalam memprediksi risiko mahasiswa mengalami dropout.
+
 Setup environment:
 
 1. Membuat environment baru bernama newenv
