@@ -26,48 +26,59 @@ Permasalahan-permasalahan ini menjadi dasar dilakukannya analisis prediktif untu
 7. Interpretasi dan Insight Bisnis, hasil visualisasi dan model prediksi dianalisis lebih lanjut melalui dashboard interaktif di Streamlit, yang memungkinkan eksplorasi pola dropout berdasarkan faktor seperti status beasiswa, keterlambatan pembayaran, atau status pernikahan. Selain itu, dashboard membantu mengidentifikasi jurusan dan kewarganegaraan yang paling rentan terhadap dropout, sehingga dapat digunakan untuk evaluasi kurikulum dan kebijakan pendidikan. Dengan pendekatan ini, institusi dapat memahami tren dropout secara lebih dinamis dan mengambil langkah intervensi yang tepat berdasarkan data yang telah divisualisasikan.
 
 ### Persiapan
-Sumber Data
-Dataset yang digunakan dalam proyek ini berisi informasi akademik dan administratif mahasiswa yang mencakup data demografis (usia saat masuk, kebangsaan), data akademik (nilai masuk, rata-rata nilai semester, jumlah mata kuliah lulus), data evaluasi (jumlah evaluasi per semester), data finansial (status pembayaran, penerimaan beasiswa), dan label target berupa status mahasiswa (Dropout, Enrolled, Graduate).
+Sumber Data: (https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
 
 Dataset ini terdiri dari 4.424 baris dan 37 kolom, dan digunakan untuk melatih model machine learning dalam memprediksi risiko mahasiswa mengalami dropout.
-
-Dataset dapat diakses melalui tautan berikut: (https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/data.csv)
-
-
 Setup environment:
 
-1. Proyek ini awalnya dikerjakan menggunakan Google Colab dan kemudian dilanjutkan secara lokal menggunakan Visual Studio Code tanpa menggunakan Conda. Untuk menjalankan proyek di lingkungan yang terisolasi, ikuti langkah-langkah berikut:
+1. Membuat environment baru bernama newenv
 
 ```
 python -m venv venv
+```
+
+2. Aktivasi environment
+
+```
 venv\Scripts\activate
+```
+
+3. Instal package yang dibutuhkan
+
+```
 pip install -r requirements.txt
 ```
 
-2. Gunakan docker dan pastikan docker sudah terinstall.
-
-```
-docker compose up -d
-```
-
-3. Login Metabase:
-
-```
-username: root1@gmail.com
-password: root12345
-```
-
-4. Deploy Streamlit App
-```
-streamlit run app.py
-```
-
-
 ## Business Dashboard
-Business Dashboard yang dibuat menggunakan Metabase berfungsi untuk analisis data mahasiswa, khususnya dalam memahami pola dropout berdasarkan berbagai faktor akademik dan finansial.  Berikut tampilannya:
-![tiani_ayu-dashboard-1](https://github.com/user-attachments/assets/38126783-949f-4bce-ad87-22bffb9ceca9)
+Dashboard ini menggabungkan analisis performa mahasiswa dengan sistem machine learning untuk memprediksi potensi dropout atau graduate. Dibangun menggunakan Streamlit guna mempermudah pemantauan status mahasiswa, jurusan, gender, serta berbagai faktor dominan lainnya.
 
- ![tiani_ayu-dashboard-2](https://github.com/user-attachments/assets/0060e2d0-11cd-4b34-99d1-7cb11a9460c4)
+![Screenshot 2025-06-17 112230](https://github.com/user-attachments/assets/e18ad52d-d1d1-44e9-8b9d-cf428635d0bd)
+
+![Screenshot 2025-06-17 112414](https://github.com/user-attachments/assets/1043c798-cb0d-45ee-b268-1d928589e49a)
+
+![Screenshot 2025-06-17 112431](https://github.com/user-attachments/assets/4cd74b03-dfcc-46f7-8ba8-aa40d3970e14)
+
+![Screenshot 2025-06-17 112449](https://github.com/user-attachments/assets/f5553df8-6a09-4c39-9dc2-b3a7cea44d91)
+
+![Screenshot 2025-06-17 112516](https://github.com/user-attachments/assets/aea9ae2c-96b0-4260-95d2-847ec10f38be)
+
+![Screenshot 2025-06-17 112553](https://github.com/user-attachments/assets/f2259230-c3fb-425c-b710-b1ac2c213611)
+
+Fitur Utama
+1. Filter Interaktif:
+- Status Mahasiswa (Dropout, Enrolled, Graduate)
+- Gender (Male, Female)
+- Jurusan (Course)
+- Attendance Time (Daytime, Evening)
+
+2. Visualisasi Dinamis:
+- Total Mahasiswa berdasarkan Status
+- Distribusi Berdasarkan Nasionalitas
+- Distribusi Berdasarkan Jurusan
+- Faktor-faktor Dominan: Marital Status, Debtor, International, Tuition Fees Up To Date, Scholarship Holder, Displaced, Educational Special Needs, Gender
+
+3. Jalankan aplikasi
+Link Streamlit: [Streamlit.app](https://dudidudidam.streamlit.app/)
 
 ## Menjalankan Sistem Machine Learning
 Sistem Machine Learning yang dibuat berfungsi untuk memprediksi kemungkinan mahasiswa mengalami dropout berdasarkan data akademik dan finansial mereka. Dashboard ini memungkinkan pengguna untuk: 
