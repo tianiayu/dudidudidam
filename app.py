@@ -115,40 +115,49 @@ gender_filter = st.multiselect("Filter Gender", df['Gender'].unique(), default=d
 
 filtered_df = df[(df['Status'].isin(status_filter)) & (df['Gender'].isin(gender_filter))]
 
-# 1. Total dropout dan course dengan dropout tertinggi
-col1, col2 = st.columns(2)
-dropout_count = filtered_df[filtered_df['Status'] == 'Dropout'].shape[0]
-col1.metric("Total Mahasiswa Dropout", dropout_count)
+if not filtered_df.empty:
+    # 1. Total dropout dan course dengan dropout tertinggi
+    col1, col2 = st.columns(2)
+    dropout_df = filtered_df[filtered_df['Status'] == 'Dropout']
+    col1.metric("Total Mahasiswa Dropout", len(dropout_df))
 
-top_dropout_course = filtered_df[filtered_df['Status'] == 'Dropout']['Course'].value_counts().idxmax()
-col2.metric("Course dengan Dropout Tertinggi", top_dropout_course)
+    if not dropout_df.empty:
+        top_dropout_course = dropout_df['Course'].value_counts().idxmax()
+        col2.metric("Course dengan Dropout Tertinggi", top_dropout_course)
+    else:
+        col2.warning("Tidak ada data Dropout dalam filter")
 
-# 2. Total mahasiswa berdasarkan status gender
-st.markdown("### Total Mahasiswa berdasarkan Status")
-st.bar_chart(filtered_df['Status'].value_counts())
+    # 2. Total mahasiswa berdasarkan status
+    st.markdown("### Total Mahasiswa berdasarkan Status")
+    st.bar_chart(filtered_df['Status'].value_counts())
 
-# 3. Distribusi berdasarkan kebangsaan
-st.markdown("### Distribusi Berdasarkan Kebangsaan (Nacionality)")
-st.bar_chart(filtered_df['Nacionality'].value_counts().head(10))
+    # 3. Distribusi berdasarkan kebangsaan
+    st.markdown("### Distribusi Berdasarkan Kebangsaan (Nacionality)")
+    st.bar_chart(filtered_df['Nacionality'].value_counts().head(10))
 
-# 4. Distribusi berdasarkan course
-st.markdown("### Distribusi Berdasarkan Program Studi (Course)")
-st.bar_chart(filtered_df['Course'].value_counts().head(10))
+    # 4. Distribusi berdasarkan course
+    st.markdown("### Distribusi Berdasarkan Program Studi (Course)")
+    st.bar_chart(filtered_df['Course'].value_counts().head(10))
 
-# 5. Faktor Dominan
-st.markdown("### Faktor-faktor Dominan terhadap Status Mahasiswa")
+    # 5. Faktor Dominan
+    st.markdown("### Faktor-faktor Dominan terhadap Status Mahasiswa")
 
-faktor_dict = {
-    "Marital Status": "Marital_status",
-    "Debtor": "Debtor",
-    "International": "International",
-    "Tuition Fees Up To Date": "Tuition_fees_up_to_date",
-    "Scholarship Holder": "Scholarship_holder",
-    "Displaced": "Displaced",
-    "Educational Special Needs": "Educational_special_needs",
-    "Gender": "Gender"
-}
+    faktor_dict = {
+        "Marital Status": "Marital_status",
+        "Debtor": "Debtor",
+        "International": "International",
+        "Tuition Fees Up To Date": "Tuition_fees_up_to_date",
+        "Scholarship Holder": "Scholarship_holder",
+        "Displaced": "Displaced",
+        "Educational Special Needs": "Educational_special_needs",
+        "Gender": "Gender"
+    }
 
-for label, column in faktor_dict.items():
-    st.markdown(f"#### Berdasarkan {label}")
-    st.bar_chart(filtered_df[column].value_counts())
+    for label, column in faktor_dict.items():
+        st.markdown(f"#### Berdasarkan {label}")
+        if column in filtered_df.columns:
+            st.bar_chart(filtered_df[column].value_counts())
+        else:
+            st.warning(f"Kolom '{column}' tidak ditemukan di data.")
+else:
+    st.error("⚠ Tidak ada data sesuai filter yang dipilih.")
