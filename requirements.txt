@@ -3,4 +3,6 @@ streamlit==1.29.0
 pandas==1.5.3
 scikit-learn==1.6.1
 SQLAlchemy==2.0.41
-streamlit
+pandas
+matplotlib
+seaborn
